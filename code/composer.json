@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "timjr/recipes",
     "type": "project",
     "description": "Recipes application.",
     "keywords": ["laravel", "framework"],
