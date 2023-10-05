@@ -8,7 +8,8 @@ use \App\Models\Unit;
  * Represents an amount of a unit (of an Ingredient)
  * eg 2.5 grammes (of sugar)
  * 
- * Supports conversion between Units
+ * Supports conversion between Unit
+ * Supports basic mathematical functions on amount (eg. multiply by 2)
  */
 class Quantity
 {

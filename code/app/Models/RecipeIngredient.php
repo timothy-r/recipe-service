@@ -3,7 +3,6 @@
 namespace App\Models;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class RecipeIngredient extends Pivot
@@ -16,4 +15,8 @@ class RecipeIngredient extends Pivot
      * @var bool
      */
     public $incrementing = true;
+
+    /**
+     * Add method to get the Quantiy of the Ingredient for the Recipe
+     */
 }
