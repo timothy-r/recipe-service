@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredients', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->string('name');
-            /**
-             * should be an enum of Ingredient class
-             */
-            $table->string('type');
+        Schema::create('recipe_ingredients', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('recipe_id');
+            $table->uuid('ingredient_id');
+            
+            $table->float('amount', 8, 2);
+
+            // should be an enum of Quantity class
+            $table->string('unit');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('recipe_ingredients');
     }
 };
