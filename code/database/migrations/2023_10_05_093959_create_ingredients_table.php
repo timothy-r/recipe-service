@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recipes', function (Blueprint $table) {
+        Schema::create('ingredients', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
-            $table->string('description');
-            $table->string('author');
+            /**
+             * should be an enum
+             */
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recipes');
+        Schema::dropIfExists('ingredients');
     }
 };
