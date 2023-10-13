@@ -47,4 +47,64 @@ class UnitTest extends TestCase
             }
         }
     }
+
+    public function test_convert_grams_to_kilos() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1000.0;
+
+        $result = $unit->convertAmount(Unit::Kilo, $amount);
+
+        $this->assertEquals(1.0, $result);
+    }
+
+    public function test_convert_grams_to_grams() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1000.0;
+
+        $result = $unit->convertAmount(Unit::Gram, $amount);
+
+        $this->assertEquals(1000.0, $result);
+    }
+
+    public function test_convert_grams_to_ounces() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1000.0;
+
+        $result = $unit->convertAmount(Unit::Ounce, $amount);
+
+        $this->assertEquals(35.3, $result);
+    }
+
+    public function test_convert_grams_to_pounds() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1000.0;
+
+        $result = $unit->convertAmount(Unit::Pound, $amount);
+
+        $this->assertEquals(2.2, $result);
+    }
+
+    public function test_convert_grams_to_teaspoons() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1.0;
+
+        $result = $unit->convertAmount(Unit::TeaSpoon, $amount);
+
+        $this->assertEquals(0.2381, $result);
+    }
+
+    public function test_convert_grams_to_tablespoons() : void 
+    {
+        $unit = Unit::Gram;
+        $amount = 1.0;
+
+        $result = $unit->convertAmount(Unit::TableSpoon, $amount);
+
+        $this->assertEquals(0.0676, $result);
+    }
 }
