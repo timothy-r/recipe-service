@@ -22,15 +22,17 @@ class QuantityTest extends TestCase
         $this->assertTrue($quantity->unit() == $unit);
     }
 
-    public function test_convert_gram_to_ounce(): void
+    public function test_convert_gram_to_kilo(): void
     {
-        $amount = 100.0;
+        $amount = 1000.0;
         $unit = Unit::Gram;
 
         $quantity = new Quantity($amount, $unit);
 
-        $new_quantity = $quantity->convertTo(Unit::Ounce);
+        $new_quantity = $quantity->convertTo(Unit::Kilo);
 
-        // $this->assertIsObject($new_quantity);
+        $this->assertIsObject($new_quantity);
+        $this->assertEquals(1.0, $new_quantity->amount());
+        $this->assertEquals(Unit::Kilo, $new_quantity->unit());
     }
 }

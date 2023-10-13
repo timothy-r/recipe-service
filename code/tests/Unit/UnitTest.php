@@ -48,63 +48,43 @@ class UnitTest extends TestCase
         }
     }
 
-    public function test_convert_grams_to_kilos() : void 
+    public function test_convert_kilos() : void 
     {
-        $unit = Unit::Gram;
-        $amount = 1000.0;
+        $items = [
+            [Unit::Kilo, 1.0],
+            [Unit::Gram, 1000.0]
+        ];
+        
+        $unit = Unit::Kilo;
+        $amount = 1.0;
 
-        $result = $unit->convertAmount(Unit::Kilo, $amount);
+        foreach ($items as $item) {
 
-        $this->assertEquals(1.0, $result);
+            $result = $unit->convertAmount($item[0], $amount);
+            $this->assertEquals($item[1], $result);
+        }
     }
 
-    public function test_convert_grams_to_grams() : void 
+    public function test_convert_grams() : void 
     {
-        $unit = Unit::Gram;
-        $amount = 1000.0;
-
-        $result = $unit->convertAmount(Unit::Gram, $amount);
-
-        $this->assertEquals(1000.0, $result);
-    }
-
-    public function test_convert_grams_to_ounces() : void 
-    {
-        $unit = Unit::Gram;
-        $amount = 1000.0;
-
-        $result = $unit->convertAmount(Unit::Ounce, $amount);
-
-        $this->assertEquals(35.3, $result);
-    }
-
-    public function test_convert_grams_to_pounds() : void 
-    {
-        $unit = Unit::Gram;
-        $amount = 1000.0;
-
-        $result = $unit->convertAmount(Unit::Pound, $amount);
-
-        $this->assertEquals(2.2, $result);
-    }
-
-    public function test_convert_grams_to_teaspoons() : void 
-    {
+        $items = [
+            [Unit::Kilo, 0.001],
+            [Unit::Gram, 1.0],
+            [Unit::Pound, 0.0022],
+            [Unit::Ounce, 0.0353],
+            [Unit::TeaSpoon, 0.2381],
+            [Unit::TableSpoon, 0.0676]
+        ];
+        
         $unit = Unit::Gram;
         $amount = 1.0;
 
-        $result = $unit->convertAmount(Unit::TeaSpoon, $amount);
+        foreach ($items as $item) {
 
-        $this->assertEquals(0.2381, $result);
+            $result = $unit->convertAmount($item[0], $amount);
+            $this->assertEquals($item[1], $result);
+        }
     }
 
-    public function test_convert_grams_to_tablespoons() : void 
-    {
-        $unit = Unit::Gram;
-        $amount = 1.0;
 
-        $result = $unit->convertAmount(Unit::TableSpoon, $amount);
-
-        $this->assertEquals(0.0676, $result);
-    }
 }

@@ -54,15 +54,36 @@ enum Unit
 
         return 0.0;
     }
+
+    /**
+     * Return the multiplier to convert from Unit::Kilo to the $target
+     */
+    protected function multiplierFromKilo(Unit $target) : float 
+    {
+        switch ($target) {
+            case Unit::Gram:
+                return 1000.0;
+            case Unit::Kilo:
+                return 1.0;
+            case Unit::Pound:
+                return 2.2046;
+            case Unit::Ounce:
+                return 35.274;
+            case Unit::TeaSpoon:
+                return 202.8841;
+            case Unit::TableSpoon:
+                return 67.6280;
+        }
+
+        return 0.0;
+    }
     
     /**
      * Determine if a Unit can be convert into another 
      */
     public function canConvertTo(Unit $target): bool 
     {
-        
         return $this->type() == $target->type();
-        
     }
 
     /**
@@ -71,13 +92,19 @@ enum Unit
     public function convertAmount(Unit $target, float $amount): float
     {
         if ($this->canConvertTo($target)){
+
+            $multiplier = 0.0;
+
             switch ($this) {
                 case Unit::Gram:
                     $multiplier = $this->multiplierFromGram($target);
-                    return $amount * $multiplier;
+                    break;
+                case Unit::Kilo:
+                    $multiplier = $this->multiplierFromKilo($target);
                     break;
             }
-            return 0.0;
+            
+            return $amount * $multiplier;
 
         } else {
             return null;
