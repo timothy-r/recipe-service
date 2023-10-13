@@ -14,12 +14,11 @@ use \App\Models\Unit;
 class Quantity
 {
     /**
-     * 
      */
     private float $amount;
 
     /**
-     * Units of the amount
+     * Units of the Quantity
      */
     private Unit $unit;
 
@@ -39,5 +38,18 @@ class Quantity
     public function unit(): Unit 
     {
         return $this->unit;
+    }
+
+    /**
+     * convert this Quantities units to another
+     * conversions are only allowed between Quantities of convertible units
+     */
+    public function convertTo(Unit $target) {
+        
+        if ($this->unit->canConvertTo($target)) {
+
+        } else {
+            return null;
+        }
     }
 }
