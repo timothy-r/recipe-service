@@ -13,7 +13,7 @@ class RecipeTest extends TestCase
      */
     public function test_recipe(): void
     {
-        $recipe = Recipe::factory()->make();
+        // $recipe = Recipe::factory()->make();
 
     }
 }

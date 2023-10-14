@@ -21,6 +21,9 @@ class RecipeController extends Controller
         # get requested pagesize from the request
         $pagesize = $request->input('pagesize', $this->default_page_size);
 
+        # constrain to max size
+        $pagesize = min($pagesize, $this->default_page_size);
+
         return Recipe::all()->take($pagesize);
     }
 }
