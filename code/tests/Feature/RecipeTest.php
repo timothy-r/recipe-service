@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Database\Seeders\RecipeSeeder;
+use Database\Seeders\IngredientSeeder;
 
 class RecipeTest extends TestCase
 {
@@ -17,7 +18,7 @@ class RecipeTest extends TestCase
 
         $default_page_length = 10;
 
-        $this->seed(RecipeSeeder::class);
+        $this->seed([RecipeSeeder::class, IngredientSeeder::class]);
 
         $response = $this->get('/api/recipes');
 
