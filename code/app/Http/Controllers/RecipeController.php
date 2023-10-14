@@ -10,7 +10,7 @@ use App\Models\Recipe;
 class RecipeController extends Controller
 {
 
-    private $default_page_size = 10;
+    private int $default_page_size = 10;
 
     /**
      * return an array of recipes

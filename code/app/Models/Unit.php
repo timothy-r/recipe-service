@@ -30,6 +30,8 @@ enum Unit
         if (in_array($this, [Unit::Milliliter, Unit::Liter, Unit::FluidOunce, Unit::Pint])){
             return 'liquid';
         }
+
+        return '';
     }
 
     /**
