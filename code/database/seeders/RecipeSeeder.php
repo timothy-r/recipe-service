@@ -2,21 +2,28 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ingredient;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\Recipe;
 
-
 class RecipeSeeder extends Seeder
 {
+
     /**
-     * Run the database seeds.
      */
     public function run(): void
     {
-        Recipe::factory()
-            ->count(10)
-            ->create();
+        foreach(range(1,20) as $i){
+
+            $ingredients = Ingredient::factory()->count(3)->create();
+            
+            $recipe = Recipe::factory()
+                ->count(1)
+                ->hasAttached($ingredients, ['amount' => 1.0, 'unit' => 'Gram'])
+                ->create();
+     
+        }
     }
 }

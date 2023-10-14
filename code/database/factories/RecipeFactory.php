@@ -23,7 +23,7 @@ class RecipeFactory extends Factory
     {
         return [
             'name' => fake()->sentence(3),
-            'description' => fake()->paragraph(2),
+            'description' => fake()->paragraph(1),
             'author'=> fake()->name()
         ];
     }
