@@ -4,12 +4,17 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Database\Seeders\RecipeSeeder;
-use Database\Seeders\IngredientSeeder;
 
 class RecipeTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * Indicates whether the default seeder should run before each test.
+     *
+     * @var bool
+     */
+    protected $seed = true;
 
     /**
      */
@@ -17,8 +22,6 @@ class RecipeTest extends TestCase
     {
 
         $default_page_length = 10;
-
-        $this->seed([RecipeSeeder::class, IngredientSeeder::class]);
 
         $response = $this->get('/api/recipes');
 
@@ -33,8 +36,6 @@ class RecipeTest extends TestCase
 
         $pagesize = 5;
 
-        $this->seed(RecipeSeeder::class);
-
         $response = $this->get('/api/recipes?pagesize='.$pagesize);
 
         $response->assertStatus(200);
@@ -47,8 +48,6 @@ class RecipeTest extends TestCase
     {
 
         $max_page_length = 10;
-
-        $this->seed(RecipeSeeder::class);
 
         $response = $this->get('/api/recipes?pagesize=4000');
 
