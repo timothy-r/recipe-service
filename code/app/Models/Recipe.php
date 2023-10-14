@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * Encapsulates a Recipe
  * contains Ingredients with Quantities (bond table recipe_id, quantity, ingredient_id)
  * contains ordered Steps to follow (step table has an index and recipe_id)
- * Quantity type has an amount and a Unit (grammes, ounces, spoons, kilos etc) - 
+ * 
+ * Quantity type has a float amount and a Unit (grammes, ounces, spoons, kilos etc) - 
  *  store both in the recipe <-> ingredient bond table, Quantity is a value object
  * Unit is an enum of supported units
  */

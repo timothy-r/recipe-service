@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('name');
             /**
-             * should be an enum of Ingredient class
+             * should be an enum
              */
             $table->string('type');
             $table->timestamps();
