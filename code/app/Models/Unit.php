@@ -79,7 +79,7 @@ enum Unit
     }
     
     /**
-     * Determine if a Unit can be convert into another 
+     * Determine if a Unit can be converted into another 
      */
     public function canConvertTo(Unit $target): bool 
     {
