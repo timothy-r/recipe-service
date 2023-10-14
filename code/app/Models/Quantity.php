@@ -44,7 +44,8 @@ class Quantity
      * convert this Quantities units to another
      * conversions are only allowed between Quantities of convertible units
      */
-    public function convertTo(Unit $target) {
+    public function convertTo(Unit $target) : Quantity
+    {
         
         if ($this->unit->canConvertTo($target)) {
             $new_amount = $this->unit->convertAmount($target, $this->amount);
