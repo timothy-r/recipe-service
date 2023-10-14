@@ -56,4 +56,13 @@ class RecipeTest extends TestCase
         $response->assertJsonCount($max_page_length);
 
     }
+
+    public function test_recipe_ingredients() : void 
+    {
+        $response = $this->get('/api/recipes');
+
+        $response->assertStatus(200);
+
+        // $response->assertJsonPath();
+    }
 }
